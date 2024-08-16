@@ -1,1 +1,38 @@
+A. Create the VPC
+
+1. On the dashboard, choose Create VPC.
+
+2. For Resources to create, choose VPC and more.
+
+3. Configure the VPC
+
+  a. Enter a name for the VPC.
+
+  b. For IPv4 CIDR block, you can keep the default suggestion, or alternatively you can enter the CIDR block required by your application or network.
+
+  c. If your application communicates by using IPv6 addresses, choose IPv6 CIDR block, Amazon-provided IPv6 CIDR block.
+
+4. Configure the subnets
+
+  a. For Number of Availability Zones, choose 2, so that you can launch instances in multiple Availability Zones to improve resiliency.
+
+  b. For Number of public subnets, choose 2.
+
+  c. For Number of private subnets, choose 2.
+
+  d. You can keep the default CIDR block for the public subnet, or alternatively you can expand Customize subnet CIDR blocks and enter a CIDR block. For more information, see Subnet CIDR blocks.
+
+5. For NAT gateways, choose 1 per AZ to improve resiliency.
+
+6. Choose Create VPC.
+
+B. Deploy your application
+ use Amazon EC2 Auto Scaling to deploy servers in multiple Availability Zones and maintain the minimum server capacity required by your application.
+
+✨To launch instances by using an Auto Scaling group✨
+1. Create a launch template to specify the configuration information needed to launch your EC2 instances by using Amazon EC2 Auto Scaling. 
+
+2. Create an Auto Scaling group, which is a collection of EC2 instances with a minimum, maximum, and desired size. 
+
+3. Create a load balancer, which distributes traffic evenly across the instances in your Auto Scaling group, and attach the load balancer to your Auto Scaling group.
 
